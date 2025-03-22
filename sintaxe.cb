@@ -1,0 +1,139 @@
+// Comentários!
+
+/**
+* Comentário multilinha
+*/
+
+
+// Variáveis
+var nome: texto = "meu nome"
+var num1: numero = 10
+var num2: float = 10.10
+var lista: lista = novo []
+
+// Exibir
+
+exibir "Meu nome é: (nome)" // exibe uma string
+exibir "Número 1: (num1.str())" // exibe um Número
+exibir "Número 2: (num2.str())" // .str() faz qualquer coisa se transformar em uma string.
+exibir lista[0] // singular
+exibir "Lista: (lista.display())" // mostra tudo da lista.
+
+// Funções
+
+// sem parâmetros
+
+funcao hello_world() {
+    exibir "Hello, World!"
+}
+
+hello_world()
+
+// com parâmetros
+
+funcao saudacao(nome) {
+    exibir "Olá, (nome)"
+}
+
+saudacao("Júlia")
+
+// classes
+
+classe Pessoa {
+    self.Set(nome, idade, genero) {
+        self.nome = nome
+        self.idade = idade
+        self.genero = genero
+    }
+
+    // validações
+
+    self.Validate(genero, idade) {
+        self.idade.setMax() = 40
+        self.genero.opcoes = ["Masculino", "Feminino"];
+
+
+        se (!self.genero.opcoes.has(self.genero)) {
+            exibir std.vermelho("O Gênero não é válido!");
+            retornar;
+        }
+    }
+
+    // funções em classe
+
+    adquirirNome: funcao(self) {
+        retornar self.nome // Deve retornar o nome da pessoa.
+    }
+
+    adquirirIdade: funcao(self) {
+        retornar self.idade
+    }
+
+    adquirirGenero: funcao(self) {
+        retornar self.genero
+    }
+}
+
+// inicialização
+
+var pessoa = novo Pessoa("Joana", 15, "Feminino");
+
+var nome: texto = pessoa.adquirirNome();
+var idade: numero = pessoa.adquirirIdade();
+var genero: texto = pessoa.adquirirGenero();
+
+exibir "Nome: (nome)"
+exibir "Idade: (idade.str())"
+exibir "Genero: (genero)"
+
+// If statements
+
+var x: numero = 10
+
+se (x == 10) {
+    exibir "x é igual a 10!"
+}
+se nao {
+    exibir "x não é igual a 10!"
+}
+
+// While loops
+
+enquanto (x == 10) {
+    x = x + 1
+
+    se (x >= 20) {
+        loop.quebrar(); // Para o loop
+        retornar x; // e retorna X
+    }
+}
+
+// For loops
+
+para (x, max(5)) {
+    x = x + 1
+}
+
+exibir X
+
+// Manipulação de listas
+
+var lista: lista = ["nome1", "nome2"];
+
+lista.adicionar("nome3"); // adiciona 'nome3' a lista
+lista.remover("nome1"); // procura por 'nome1' e o remove, retorna erro se não conseguir encontrar.
+lista.filtrar(lista.index.comecaCom('nome')); // filtra os itens na lista que começam com 'nome'
+
+lista.editar(1, "novoNome"); // edita 'nome2' para 'novoNome'
+
+se (lista.tem(1)) {
+    exibir "algumacoisa"
+}
+
+// Try and catch
+
+tentar {
+    var numero = 10 / 0 // lógica vai ser adicionada para um errod e divisão.
+} capturar (erro) {
+    exibir "Erro: (erro.mensagem)"
+}
