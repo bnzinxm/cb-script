@@ -7,9 +7,24 @@
 
  Made by: AstroDev  | Last Edit: 07/04/2025 (11:33 AM)
  File: src/grammar/grammar.pest
- 
+
 */
 
+/*
+    ---------------------------------------------------------------------
+    Este arqivo contém a gramática (Sintaxe) da linguagem CB Script
+    A linguagem CB Script possui comandos básicos, como
+    "exibir", que permite a exibição de textos, e pode
+    ser estendida com outros comandos conforme a evolução
+    do projeto.
+
+    A Gramática é composta por várias regras que definem
+    a sintaxe da linguagem. As regras são compostas por:
+    - Regras de estrutura do programa (program)
+    - Regras de comandos específicos (exibir)
+    - Regras de manipulação de texto e strings
+    ---------------------------------------------------------------------
+*/
 
 WHITESPACE = _{ " " | "\t" | "\n" }
 
@@ -17,3 +32,4 @@ program      = { SOI ~ statement* ~ EOI }               // Isso aqui já é o su
 statement    = { exibir }                               // ler oque tem dentro do arquivo.cb,
 exibir       = { "exibir" ~ WHITESPACE ~ string }       // Só aqui, temos o keyword 'exibir'
 string       = { "\"" ~ (!"\"" ~ ANY)* ~ "\"" }
+
