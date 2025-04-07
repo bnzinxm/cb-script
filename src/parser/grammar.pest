@@ -26,10 +26,11 @@
     ---------------------------------------------------------------------
 */
 
-WHITESPACE = _{ " " | "\t" | "\n" }
+WHITESPACE = _{ " " | "\t" }
+NEWLINE = _{ "\n" | "\r\n" }
 
-program      = { SOI ~ statement* ~ EOI }               // Isso aqui já é o suficiente para
-statement    = { exibir }                               // ler oque tem dentro do arquivo.cb,
-exibir       = { "exibir" ~ WHITESPACE ~ string }       // Só aqui, temos o keyword 'exibir'
-string       = { "\"" ~ (!"\"" ~ ANY)* ~ "\"" }
+program   = { SOI ~ statement* ~ NEWLINE* ~ EOI }
+statement = _{ exibir ~ (NEWLINE+)? }
 
+exibir    = { "exibir" ~ WHITESPACE+ ~ string }
+string    = @{ "\"" ~ (!"\"" ~ ANY)* ~ "\"" }
