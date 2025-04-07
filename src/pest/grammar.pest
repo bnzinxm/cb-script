@@ -1,0 +1,19 @@
+/**
+     _        _             ____
+    / \   ___| |_ _ __ ___ |  _ \  _____   __
+   / _ \ / __| __| '__/ _ \| | | |/ _ \ \ / /
+  / ___ \\__ \ |_| | | (_) | |_| |  __/\ V /
+ /_/   \_\___/\__|_|  \___/|____/ \___| \_/
+
+ Made by: AstroDev  | Last Edit: 07/04/2025 (11:33 AM)
+ File: src/grammar/grammar.pest
+ 
+*/
+
+
+WHITESPACE = _{ " " | "\t" | "\n" }
+
+program      = { SOI ~ statement* ~ EOI }               // Isso aqui já é o suficiente para
+statement    = { exibir }                               // ler oque tem dentro do arquivo.cb,
+exibir       = { "exibir" ~ WHITESPACE ~ string }       // Só aqui, temos o keyword 'exibir'
+string       = { "\"" ~ (!"\"" ~ ANY)* ~ "\"" }
