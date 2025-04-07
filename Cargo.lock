@@ -4,7 +4,4 @@ version = 4
 
 [[package]]
 name = "cb-script"
-authors = ["AstroDev <brenobarbosa269@gmail.com>"]
 version = "0.1.0"
-
-[dependencies]
