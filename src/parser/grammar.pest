@@ -26,11 +26,18 @@
     ---------------------------------------------------------------------
 */
 
-WHITESPACE = _{ " " | "\t" }
-NEWLINE = _{ "\n" | "\r\n" }
+WHITESPACE = _{ " " | "\t" | "\r" | "\n" }
 
-program   = { SOI ~ statement* ~ NEWLINE* ~ EOI }
-statement = _{ exibir ~ (NEWLINE+)? }
+program = { SOI ~ statement* ~ EOI }
 
-exibir    = { "exibir" ~ WHITESPACE+ ~ string }
-string    = @{ "\"" ~ (!"\"" ~ ANY)* ~ "\"" }
+statement = _{ var_decl | exibir_stmt }
+
+var_decl = { "var" ~ ident ~ ":" ~ tipo ~ "=" ~ value }
+exibir_stmt = { "exibir" ~ value }
+
+tipo = _{ "texto" | "numero" }
+ident = @{ ASCII_ALPHANUMERIC+ }
+value = _{ string | number | ident }
+
+string = @{ "\"" ~ (!"\"" ~ ANY)* ~ "\"" }
+number = @{ ASCII_DIGIT+ }
